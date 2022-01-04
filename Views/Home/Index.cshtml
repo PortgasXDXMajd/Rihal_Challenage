@@ -1,0 +1,233 @@
+﻿@using rihal_challenge.ViewModels
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style> 
+#main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-body">
+          <div id="main">
+              <div><h3>Average Students Age</h3></div>
+              <div><h3>@Model!.StudentAvrageAge years old</h3></div>
+          </div>
+      </div>
+    </div>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <table id="Table" class="table table-responsive-sm table-striped" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>
+                                Student Name
+                            </th>
+                            <th>
+                                Birthday
+                            </th>
+                            <th>
+                                Class
+                            </th>
+                            <th>
+                                Country
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Student s in Model!.studentList??new List<Student>())
+                        {
+                        <tr>
+                            <td>
+                                @s.StudentName
+                            </td>
+                            <td>
+                                @s.StudentDateOfBirth.ToString("dd MMM yyyy")
+                            </td>
+                            <td>
+                                @s.Class!.ClassName
+                            </td>
+                            <td>
+                                @s.Country!.CountryName
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <table id="CountryTable" class="table table-responsive-sm table-striped" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>
+                                Country Name
+                            </th>
+                            <th>
+                                Student Count
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Country c in Model!.countryList??new List<Country>())
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(country => c.CountryName)
+                            </td>
+                            <td>
+                                @c.StudentList!.Count()
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <table id="ClassTable" class="table table-responsive-sm table-striped" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>
+                                Class Name
+                            </th>
+                            <th>
+                                Student Count
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Class c in Model!.classList??new List<Class>())
+                        {
+                        <tr>
+                            <td>
+                                @c.ClassName
+                            </td>
+                            <td>
+                                @c.StudentList!.Count()
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#Table').DataTable({
+                "paging": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true,
+                "responsive": true,
+                "scrollX": true,
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'copy',
+                        text: 'Copy',
+                        className: 'btn btn-default',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'Excel',
+                        className: 'btn btn-default',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    }
+                ]
+            });
+        });
+        $(document).ready(function () {
+            $('#CountryTable').DataTable({
+                "paging": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true,
+                "responsive": true,
+                "scrollX": true,
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'copy',
+                        text: 'Copy',
+                        className: 'btn btn-default',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'Excel',
+                        className: 'btn btn-default',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    }
+                ]
+            });
+        });
+           $(document).ready(function () {
+            $('#ClassTable').DataTable({
+                "paging": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true,
+                "responsive": true,
+                "scrollX": true,
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'copy',
+                        text: 'Copy',
+                        className: 'btn btn-default',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'Excel',
+                        className: 'btn btn-default',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+}
