@@ -5,5 +5,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\Acer\Desktop\rihal_challenge\Properties\PublishProfiles\Default Settings.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

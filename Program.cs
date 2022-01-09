@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<MyDbContext>(x => x.UseSqlServer(connectionString));
+/*builder.Services.AddDbContext<MyDbContext>(x => x.UseSqlServer(connectionString));*/
+builder.Services.AddDbContext<MyDbContext>(x => x.UseSqlite(connectionString));
 builder.Services.AddTransient<DataSeeder>();
 
 
@@ -38,6 +39,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseDeveloperExceptionPage();
 
 app.MapControllerRoute(
     name: "default",

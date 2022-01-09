@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Desktop\\rihal_challenge\\rihal_challenge.csproj": {}
+    "C:\\Users\\Acer\\Desktop\\Projects\\rihal_challenge\\rihal_challenge.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Desktop\\rihal_challenge\\rihal_challenge.csproj": {
+    "C:\\Users\\Acer\\Desktop\\Projects\\rihal_challenge\\rihal_challenge.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\rihal_challenge\\rihal_challenge.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\Projects\\rihal_challenge\\rihal_challenge.csproj",
         "projectName": "rihal_challenge",
-        "projectPath": "C:\\Users\\Acer\\Desktop\\rihal_challenge\\rihal_challenge.csproj",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\Projects\\rihal_challenge\\rihal_challenge.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Desktop\\rihal_challenge\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\Projects\\rihal_challenge\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,15 +40,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[6.0.1, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.EntityFrameworkCore.Sqlite.Design": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[1.1.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

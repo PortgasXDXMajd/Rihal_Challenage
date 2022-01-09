@@ -17,7 +17,7 @@ namespace rihal_challenge.Context
                 .Build();
 
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlite(connectionString);
         }
 
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
